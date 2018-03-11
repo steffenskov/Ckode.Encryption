@@ -8,6 +8,11 @@
     <PackageProjectUrl>https://github.com/NQbbe/Ckode.Encryption</PackageProjectUrl>
     <RepositoryUrl></RepositoryUrl>
     <RepositoryType />
+    <Description>A small collection of simplified wrappers for common encryption algorithms.</Description>
+    <FileVersion>1.0.1.0</FileVersion>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <Version>1.0.1</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>..\..\Binary</OutputPath>
