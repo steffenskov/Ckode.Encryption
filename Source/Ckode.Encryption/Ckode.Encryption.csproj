@@ -4,8 +4,20 @@
     <Authors>Steffen Skov</Authors>
     <Copyright>Steffen Skov 2018</Copyright>
     <PackageTags>Ckode, Encryption, AES, RSA</PackageTags>
+    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/NQbbe/Ckode.Encryption</PackageProjectUrl>
+    <RepositoryUrl></RepositoryUrl>
+    <RepositoryType />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>..\..\Binary</OutputPath>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="changelog.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="changelog.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
