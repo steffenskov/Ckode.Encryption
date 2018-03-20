@@ -9,20 +9,17 @@
     <RepositoryUrl></RepositoryUrl>
     <RepositoryType />
     <Description>A small collection of simplified wrappers for common encryption algorithms.</Description>
-    <FileVersion>1.0.3.0</FileVersion>
-    <AssemblyVersion>1.0.3.0</AssemblyVersion>
-    <Version>1.0.3</Version>
+    <FileVersion>1.0.4.0</FileVersion>
+    <AssemblyVersion>1.0.4.0</AssemblyVersion>
+    <Version>1.0.4</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>..\..\Binary</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="changelog.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="changelog.txt">
+    <None Update="changelog.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
+    </None>
   </ItemGroup>
 </Project>
