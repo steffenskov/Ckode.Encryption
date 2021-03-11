@@ -58,7 +58,9 @@ namespace Ckode.Encryption.Helpers
 			{
 				var innerArray = byteArrays[i];
 				if (i != lastIndex)
+				{
 					result[position++] = (byte)innerArray.Length;
+				}
 
 				result.Insert(position, innerArray);
 				position += innerArray.Length;

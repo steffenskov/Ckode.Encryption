@@ -42,8 +42,8 @@ namespace Ckode.Encryption
 			/// <param name="privateKey">Private key.</param>
 			public RSAKeyPair(string publicKey, string privateKey)
 			{
-				this.PublicKey = publicKey;
-				this.PrivateKey = privateKey;
+				PublicKey = publicKey;
+				PrivateKey = privateKey;
 			}
 
 			/// <summary>
@@ -122,7 +122,9 @@ namespace Ckode.Encryption
 		private RSACryptoServiceProvider CreateCipherForDecryption(string privateKey)
 		{
 			if (privateKey == null)
+			{
 				throw new ArgumentNullException(nameof(privateKey));
+			}
 
 			var cipher = new RSACryptoServiceProvider
 			{
@@ -135,7 +137,10 @@ namespace Ckode.Encryption
 		private RSACryptoServiceProvider CreateCipherForEncryption(string publicKey)
 		{
 			if (publicKey == null)
+			{
 				throw new ArgumentNullException(nameof(publicKey));
+			}
+
 			var cipher = new RSACryptoServiceProvider
 			{
 				PersistKeyInCsp = false
