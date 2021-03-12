@@ -1,6 +1,6 @@
 ﻿Version	Date		Developer
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-2.0.0	09-03-2021	Steffen Skov
+2.0.0	12-03-2021	Steffen Skov
 
 	* Upgraded to .NET Standard 2.0
 	* Added Unit tests
