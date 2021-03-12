@@ -50,34 +50,6 @@ namespace Ckode.Encryption
 		#region Encryption
 
 		/// <summary>
-		/// Creates a CryptoStream that encrypts the given input when written to.
-		/// </summary>
-		/// <param name="input">Input stream to encrypt</param>
-		/// <param name="key">Key to use for encryption.</param>
-		public CryptoStream Encrypt(Stream input, byte[] key)
-		{
-			using (var aes = new AesManaged())
-			{
-				aes.KeySize = aes.LegalKeySizes.Max(keySize => keySize.MaxSize);
-
-				aes.GenerateIV();
-				aes.Key = key;
-
-				var encryptedCipherHeader = new EncryptedCipher
-				{
-					Keysize = aes.KeySize,
-					Cipher = new byte[0],
-					IV = aes.IV
-				};
-
-				var headerBytes = encryptedCipherHeader.ToBytes();
-				input.Write(headerBytes, 0, headerBytes.Length);
-
-				return new CryptoStream(input, aes.CreateEncryptor(), CryptoStreamMode.Write);
-			}
-		}
-
-		/// <summary>
 		/// Encrypt the specified text using the given encoding to get the bytes, and the password as
 		/// encryption key.
 		/// </summary>
@@ -117,25 +89,6 @@ namespace Ckode.Encryption
 		#endregion Encryption
 
 		#region Decryption
-
-		/// <summary>
-		/// Creates a CryptoStream that decrypts the given input stream when read from.
-		/// </summary>
-		/// <param name="input">Input stream to decrypts</param>
-		/// <param name="key">The key the cipher was encrypted with.</param>
-		public Stream Decrypt(Stream input, byte[] key)
-		{
-			var encryptedCipher = new EncryptedCipher(input);
-
-			using (var aes = new AesManaged())
-			{
-				aes.KeySize = encryptedCipher.Keysize;
-				aes.IV = encryptedCipher.IV;
-				aes.Key = key;
-
-				return new CryptoStream(input, aes.CreateDecryptor(), CryptoStreamMode.Read);
-			}
-		}
 
 		/// <summary>
 		/// Decrypt the specified bytes using the password into a string, encoded using the given encoding.

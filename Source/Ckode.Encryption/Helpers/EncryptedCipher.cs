@@ -21,17 +21,6 @@ namespace Ckode.Encryption.Helpers
 			Cipher = bytes.GetSubArray(position);
 		}
 
-		/// <summary>
-		/// Only reads out the header, to avoid filling the memory with the entire cipher.
-		/// </summary>
-		/// <param name="stream"></param>
-		public EncryptedCipher(Stream stream)
-		{
-			var keysizeBytes = GetArrayPart(stream);
-			Keysize = BitConverter.ToInt32(keysizeBytes, 0);
-			IV = GetArrayPart(stream);
-		}
-
 		public EncryptedCipher()
 		{
 		}
@@ -73,14 +62,6 @@ namespace Ckode.Encryption.Helpers
 		{
 			var partLength = cipher[position];
 			return cipher.GetSubArray(1 + position, partLength);
-		}
-
-		protected static byte[] GetArrayPart(Stream stream)
-		{
-			var partLength = stream.ReadByte();
-			var result = new byte[partLength];
-			stream.Read(result, 0, partLength);
-			return result;
 		}
 	}
 }

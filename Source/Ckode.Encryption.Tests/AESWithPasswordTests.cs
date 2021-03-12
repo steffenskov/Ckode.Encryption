@@ -7,28 +7,14 @@ using Xunit;
 
 namespace Ckode.Encryption.Tests
 {
-	public class AESTests
+	public class AESWithPasswordTests
 	{
 		[Fact]
-		public void AES_GenerateKey_GivesProperAESKey()
+		public void AESWithPassword_EncryptString_CanDecryptUsingSameKey()
 		{
 			// Arrange
-			var aes = new AES();
-
-			// Act
-			var key = aes.GenerateKey();
-
-			// Assert
-			using var managedAes = Aes.Create();
-			Assert.Equal(managedAes.KeySize / 8, key.Length);
-		}
-
-		[Fact]
-		public void AES_EncryptString_CanDecryptUsingSameKey()
-		{
-			// Arrange
-			var aes = new AES();
-			var key = aes.GenerateKey();
+			var aes = new AESWithPassword();
+			var key = "My secret";
 
 			// Act
 			var encrypted = aes.Encrypt("Hello world", Encoding.UTF8, key);
@@ -39,14 +25,14 @@ namespace Ckode.Encryption.Tests
 		}
 
 		[Fact]
-		public void AES_EncryptString_CannotDecryptUsingDifferentKey()
+		public void AESWithPassword_EncryptString_CannotDecryptUsingDifferentKey()
 		{
 			// Arrange
-			var aes = new AES();
-			var key = aes.GenerateKey();
+			var aes = new AESWithPassword();
+			var key = "My secret";
 
 			// Act
-			var wrongKey = aes.GenerateKey();
+			var wrongKey = "Could this be the secret?";
 			var encrypted = aes.Encrypt("Hello world", Encoding.UTF8, key);
 
 			// Assert
@@ -54,12 +40,12 @@ namespace Ckode.Encryption.Tests
 		}
 
 		[Fact]
-		public void AES_EncryptBytes_CanDecryptUsingSameKey()
+		public void AESWithPassword_EncryptBytes_CanDecryptUsingSameKey()
 		{
 			// Arrange
-			var aes = new AES();
+			var aes = new AESWithPassword();
 			byte[] bytes = new byte[] { 1, 2, 3, 4, 5 };
-			var key = aes.GenerateKey();
+			var key = "My secret";
 
 			// Act
 			var encrypted = aes.Encrypt(bytes, key);
@@ -70,15 +56,15 @@ namespace Ckode.Encryption.Tests
 		}
 
 		[Fact]
-		public void AES_EncryptBytes_CannotDecryptUsingDifferentKey()
+		public void AESWithPassword_EncryptBytes_CannotDecryptUsingDifferentKey()
 		{
 			// Arrange
-			var aes = new AES();
+			var aes = new AESWithPassword();
 			byte[] bytes = new byte[] { 1, 2, 3, 4, 5 };
-			var key = aes.GenerateKey();
+			var key = "My secret";
 
 			// Act
-			var wrongKey = aes.GenerateKey();
+			var wrongKey = "Could this be the secret?";
 			var encrypted = aes.Encrypt(bytes, key);
 
 			// Assert

@@ -62,28 +62,70 @@ namespace Ckode.Encryption
 		#region Encryption
 
 		/// <summary>
-		/// Encrypt the specified bytes using the given encryption key.
+		/// Encrypt the specified text using the given encoding to get the bytes, and using the given
+		/// key pair.
 		/// </summary>
-		/// <param name="bytes">Bytes to encrypt.</param>
-		/// <param name="encryptionKey">Encryption key to use for the encryption.</param>
-		public byte[] Encrypt(byte[] bytes, string encryptionKey)
+		/// <param name="text">Text to encrypt.</param>
+		/// <param name="encoding">Encoding of the string.</param>
+		/// <param name="keyPair">Key pair to use for the encryption.</param>
+		public byte[] Encrypt(string text, Encoding encoding, RSAKeyPair keyPair)
 		{
-			using (var cipher = CreateCipherForEncryption(encryptionKey))
+			if (keyPair == null)
 			{
-				return cipher.Encrypt(bytes, false);
+				throw new ArgumentNullException(nameof(keyPair));
 			}
+
+			return Encrypt(text, encoding, keyPair.PublicKey);
 		}
 
 		/// <summary>
 		/// Encrypt the specified text using the given encoding to get the bytes, and using the given
-		/// encryption key.
+		/// public key.
 		/// </summary>
 		/// <param name="text">Text to encrypt.</param>
 		/// <param name="encoding">Encoding of the string.</param>
-		/// <param name="encryptionKey">Encryption key to use for the encryption.</param>
-		public byte[] Encrypt(string text, Encoding encoding, string encryptionKey)
+		/// <param name="publicKey">Public key to use for the encryption.</param>
+		public byte[] Encrypt(string text, Encoding encoding, string publicKey)
 		{
-			return Encrypt(encoding.GetBytes(text), encryptionKey);
+			if (text == null)
+			{
+				throw new ArgumentNullException(nameof(text));
+			}
+
+			if (encoding == null)
+			{
+				throw new ArgumentNullException(nameof(encoding));
+			}
+
+			return Encrypt(encoding.GetBytes(text), publicKey);
+		}
+
+		/// <summary>
+		/// Encrypt the specified bytes using the given key pair.
+		/// </summary>
+		/// <param name="bytes">Bytes to encrypt.</param>
+		/// <param name="keyPair">Key pair to use for the encryption.</param>
+		public byte[] Encrypt(byte[] bytes, RSAKeyPair keyPair)
+		{
+			if (keyPair == null)
+			{
+				throw new ArgumentNullException(nameof(keyPair));
+			}
+
+			return Encrypt(bytes, keyPair.PublicKey);
+		}
+
+		/// <summary>
+		/// Encrypt the specified bytes using the given encryption key.
+		/// </summary>
+		/// <param name="bytes">Bytes to encrypt.</param>
+		/// <param name="publicKey">Encryption key to use for the encryption.</param>
+		public byte[] Encrypt(byte[] bytes, string publicKey)
+		{
+			using (var cipher = CreateCipherForEncryption(publicKey))
+			{
+				return cipher.Encrypt(bytes, false);
+			}
 		}
 
 		#endregion Encryption
@@ -91,16 +133,20 @@ namespace Ckode.Encryption
 		#region Decryption
 
 		/// <summary>
-		/// Decrypt the specified bytes using the given decryption key.
+		/// Decrypt the specified bytes using the key pair into a string, encoded using the
+		/// given encoding.
 		/// </summary>
 		/// <param name="bytes">Bytes to decrypt.</param>
-		/// <param name="decryptionKey">Decryption key to use for the decryption.</param>
-		public byte[] Decrypt(byte[] bytes, string decryptionKey)
+		/// <param name="encoding">Encoding of the string.</param>
+		/// <param name="keyPair">Key pair to use for the decryption.</param>
+		public string Decrypt(byte[] bytes, Encoding encoding, RSAKeyPair keyPair)
 		{
-			using (var cipher = CreateCipherForDecryption(decryptionKey))
+			if (keyPair == null)
 			{
-				return cipher.Decrypt(bytes, false);
+				throw new ArgumentNullException(nameof(keyPair));
 			}
+
+			return Decrypt(bytes, encoding, keyPair.PrivateKey);
 		}
 
 		/// <summary>
@@ -109,10 +155,48 @@ namespace Ckode.Encryption
 		/// </summary>
 		/// <param name="bytes">Bytes to decrypt.</param>
 		/// <param name="encoding">Encoding of the string.</param>
-		/// <param name="decryptionKey">Decryption key to use for the decryption.</param>
-		public string Decrypt(byte[] bytes, Encoding encoding, string decryptionKey)
+		/// <param name="privateKey">Decryption key to use for the decryption.</param>
+		public string Decrypt(byte[] bytes, Encoding encoding, string privateKey)
 		{
-			return encoding.GetString(Decrypt(bytes, decryptionKey));
+			if (encoding == null)
+			{
+				throw new ArgumentNullException(nameof(encoding));
+			}
+
+			return encoding.GetString(Decrypt(bytes, privateKey));
+		}
+
+		/// <summary>
+		/// Decrypt the specified bytes using the given key pair.
+		/// </summary>
+		/// <param name="bytes">Bytes to decrypt.</param>
+		/// <param name="keyPair">Key pair to use for the decryption.</param>
+		public byte[] Decrypt(byte[] bytes, RSAKeyPair keyPair)
+		{
+			if (keyPair == null)
+			{
+				throw new ArgumentNullException(nameof(keyPair));
+			}
+
+			return Decrypt(bytes, keyPair.PrivateKey);
+		}
+
+		/// <summary>
+		/// Decrypt the specified bytes using the given private key.
+		/// </summary>
+		/// <param name="bytes">Bytes to decrypt.</param>
+		/// <param name="privateKey">Private key to use for the decryption.</param>
+		public byte[] Decrypt(byte[] bytes, string privateKey)
+		{
+			if (bytes == null)
+			{
+				throw new ArgumentNullException(nameof(bytes));
+			}
+
+			using (var cipher = CreateCipherForDecryption(privateKey))
+			{
+				return cipher.Decrypt(bytes, false);
+			}
 		}
 
 		#endregion Decryption
