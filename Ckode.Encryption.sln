@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ckode.Encryption", "Ckode.Encryption\Ckode.Encryption.csproj", "{3917BF7F-C41B-4381-90A4-13F4392B6167}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ckode.Encryption", "src\Ckode.Encryption\Ckode.Encryption.csproj", "{3917BF7F-C41B-4381-90A4-13F4392B6167}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ckode.Encryption.Tests", "Ckode.Encryption.Tests\Ckode.Encryption.Tests.csproj", "{7C0E603E-4834-4B85-AE09-D17D1BB56EAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ckode.Encryption.Tests", "tests\Ckode.Encryption.Tests\Ckode.Encryption.Tests.csproj", "{7C0E603E-4834-4B85-AE09-D17D1BB56EAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
