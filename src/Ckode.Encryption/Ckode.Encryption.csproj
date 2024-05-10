@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>true</ImplicitUsings>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -9,7 +9,6 @@
         <Company>Steffen Skov</Company>
         <Description>Wrappers around the native AES and RSA algorithms to simplify using them properly.</Description>
         <Copyright>Steffen Skov 2022</Copyright>
-        <Version>2.1.0</Version>
         <PackageProjectUrl>https://github.com/steffenskov/Ckode.Encryption</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageTags>Ckode, Encryption, AES, RSA</PackageTags>
