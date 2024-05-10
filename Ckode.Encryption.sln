@@ -7,6 +7,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ckode.Encryption", "src\Cko
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ckode.Encryption.Tests", "tests\Ckode.Encryption.Tests\Ckode.Encryption.Tests.csproj", "{7C0E603E-4834-4B85-AE09-D17D1BB56EAD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3F1A2C24-E0DD-4A61-911D-48899CF28027}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E3FF27FF-5EAD-4F79-B79F-C4DF4C15CDF4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FF2A7838-D47B-48F8-BF06-9BE4658A8441}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,5 +37,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {56A2365E-6138-4DC6-9B1E-FE30205DB889}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3917BF7F-C41B-4381-90A4-13F4392B6167} = {3F1A2C24-E0DD-4A61-911D-48899CF28027}
+		{7C0E603E-4834-4B85-AE09-D17D1BB56EAD} = {E3FF27FF-5EAD-4F79-B79F-C4DF4C15CDF4}
 	EndGlobalSection
 EndGlobal
