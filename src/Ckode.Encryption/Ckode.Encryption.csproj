@@ -1,20 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <Nullable>enable</Nullable>
-        <ImplicitUsings>true</ImplicitUsings>
-        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-        <Authors>Steffen Skov</Authors>
-        <Company>Steffen Skov</Company>
-        <Description>Wrappers around the native AES and RSA algorithms to simplify using them properly.</Description>
-        <Copyright>Steffen Skov 2022</Copyright>
-        <PackageProjectUrl>https://github.com/steffenskov/Ckode.Encryption</PackageProjectUrl>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageTags>Ckode, Encryption, AES, RSA</PackageTags>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-    </PropertyGroup>
-    <ItemGroup>
-        <None Include="../../README.md" Pack="true" PackagePath="\"/>
-    </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>true</ImplicitUsings>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<Authors>Steffen Skov</Authors>
+		<Company>Steffen Skov</Company>
+		<Description>Wrappers around the native AES, RSA and HMAC algorithms to simplify using them properly.</Description>
+		<Copyright>Steffen Skov 2022</Copyright>
+		<PackageProjectUrl>https://github.com/steffenskov/Ckode.Encryption</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageTags>Ckode, Encryption, AES, RSA, HMAC</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="../../README.md" Pack="true" PackagePath="\"/>
+		<None Include="../../CHANGELOG.md" Pack="true" PackagePath="\"/>
+	</ItemGroup>
 </Project>
