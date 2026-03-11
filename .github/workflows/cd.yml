@@ -10,7 +10,7 @@ concurrency:
 
 env:
   PROJECT_PATH: "src/Ckode.Encryption/Ckode.Encryption.csproj"
-  SOLUTION_PATH: "Ckode.Encryption.sln"
+  SOLUTION_PATH: "Ckode.Encryption.slnx"
   PACKAGE_OUTPUT_DIRECTORY: ${{ github.workspace }}\output
   NUGET_SOURCE_URL: "https://api.nuget.org/v3/index.json"
 
@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: "Install dotnet"
         uses: actions/setup-dotnet@v4

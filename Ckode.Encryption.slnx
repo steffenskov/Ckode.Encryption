@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Ckode.Encryption/Ckode.Encryption.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Ckode.Encryption.Tests/Ckode.Encryption.Tests.csproj" />
+  </Folder>
+</Solution>
