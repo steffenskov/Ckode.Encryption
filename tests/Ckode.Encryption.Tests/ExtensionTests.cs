@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 
 namespace Ckode.Encryption.Tests;
@@ -15,7 +14,10 @@ public class ExtensionTests
 		var subArray = array.GetSubArray(2);
 
 		// Assert
-		for (var i = 2; i < array.Length; i++) Assert.Equal(array[i], subArray[i - 2]);
+		for (var i = 2; i < array.Length; i++)
+		{
+			Assert.Equal(array[i], subArray[i - 2]);
+		}
 	}
 
 	[Fact]

@@ -3,7 +3,9 @@
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 
+
 		<IsPackable>false</IsPackable>
+		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -20,7 +22,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\src\Ckode.Encryption\Ckode.Encryption.csproj" />
+		<ProjectReference Include="..\..\src\Ckode.Encryption\Ckode.Encryption.csproj"/>
 	</ItemGroup>
 
 </Project>
